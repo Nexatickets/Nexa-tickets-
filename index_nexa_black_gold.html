@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nexa Tickets Query Form</title>
+    <style>
+        body {
+            background-color: #121212;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f1c40f;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .form-container {
+            background-color: #1c1c1c;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #f1c40f;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #2c2c2c;
+            color: #f1c40f;
+        }
+
+        input[type="submit"] {
+            background-color: #f1c40f;
+            color: #121212;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #d4ac0d;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Nexa Tickets Query Form</h2>
+        <form action="https://formspree.io/f/mgvkqlob" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="from">Traveling From</label>
+            <input type="text" id="from" name="from" required>
+
+            <label for="to">Traveling To</label>
+            <input type="text" id="to" name="to" required>
+
+            <label for="date">Travel Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="class">Class</label>
+            <select id="class" name="class">
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+            </select>
+
+            <label for="airline">Airline Preference</label>
+            <select id="airline" name="airline">
+                <option value="Any">Choose Cheapest</option>
+                <option value="Emirates">Emirates</option>
+                <option value="Qatar Airways">Qatar Airways</option>
+                <option value="KLM">KLM</option>
+                <option value="Turkish Airlines">Turkish Airlines</option>
+                <option value="British Airways">British Airways</option>
+            </select>
+
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="4" placeholder="Add any special request or details here..."></textarea>
+
+            <input type="submit" value="Submit Query">
+        </form>
+    </div>
+</body>
+</html>
