@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nexa Tickets Query</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f8fb;
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+    form {
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #1d72b8;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #155d8b;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+    }
+    .row > div {
+      flex: 1;
+    }
+  </style>
+  <script>
+    function toggleReturnDate() {
+      const tripType = document.getElementById("trip-type").value;
+      document.getElementById("return-date-container").style.display = tripType === "round-trip" ? "block" : "none";
+    }
+  </script>
+</head>
+<body>
+  <form action="https://formspree.io/f/mgvkqlob" method="POST">
+    <h2>Nexa Tickets Query</h2>
+
+    <label for="trip-type">Trip Type</label>
+    <select id="trip-type" name="Trip Type" onchange="toggleReturnDate()">
+      <option value="one-way">One-way</option>
+      <option value="round-trip">Round-trip</option>
+    </select>
+
+    <label for="departure">From (City or Country)</label>
+    <input type="text" id="departure" name="Departure" required>
+
+    <label for="destination">To (City or Country)</label>
+    <input type="text" id="destination" name="Destination" required>
+
+    <label for="departure-date">Departure Date</label>
+    <input type="date" id="departure-date" name="Departure Date" required>
+
+    <div id="return-date-container" style="display: none;">
+      <label for="return-date">Return Date</label>
+      <input type="date" id="return-date" name="Return Date">
+    </div>
+
+    <label for="airline">Preferred Airline</label>
+    <select id="airline" name="Preferred Airline">
+      <option value="any">Any</option>
+      <option value="ethiopian">Ethiopian Airlines</option>
+      <option value="emirates">Emirates</option>
+      <option value="qatar">Qatar Airways</option>
+      <option value="turkish">Turkish Airlines</option>
+      <option value="klm">KLM</option>
+      <option value="delta">Delta</option>
+      <option value="british">British Airways</option>
+    </select>
+
+    <label for="class">Class</label>
+    <select id="class" name="Class">
+      <option value="economy">Economy</option>
+      <option value="business">Business</option>
+      <option value="first">First</option>
+    </select>
+
+    <div class="row">
+      <div>
+        <label for="adults">Adults</label>
+        <input type="number" id="adults" name="Adults" min="1" value="1">
+      </div>
+      <div>
+        <label for="children">Children (2-11)</label>
+        <input type="number" id="children" name="Children" min="0" value="0">
+      </div>
+      <div>
+        <label for="minors">Minors (Under 2)</label>
+        <input type="number" id="minors" name="Minors" min="0" value="0">
+      </div>
+    </div>
+
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="Email" required>
+
+    <button type="submit">Submit Query</button>
+  </form>
+</body>
+</html>
